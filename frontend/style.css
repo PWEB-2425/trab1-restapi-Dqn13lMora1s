@@ -1,1 +1,32 @@
-/* Estilos para a página */
+body {
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+    form {
+      margin-top: 1rem;
+      display: none;
+      gap: 0.5rem;
+      flex-direction: column;
+    }
+    form input, form select, form button {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+    table {
+      margin-top: 1rem;
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 0.5rem;
+      text-align: left;
+    }
+    #novo-btn {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }

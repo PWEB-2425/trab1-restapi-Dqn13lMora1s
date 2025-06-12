@@ -9,12 +9,12 @@
       "idade": 22
     },
     {
-      "id": "2",
       "nome": "Daniel",
       "apelido": "Morais",
+      "idade": 23,
       "curso": 2,
       "anoCurricular": 3,
-      "idade": 22
+      "id": "2"
     },
     {
       "id": "3",
