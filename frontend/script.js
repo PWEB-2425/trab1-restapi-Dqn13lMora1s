@@ -1,5 +1,5 @@
 // URL da API simulada (JSON Server)
-const apiUrl = "http://localhost:3000";
+const apiUrl = "http://localhost:5000";
 
 // Referências a elementos do DOM
 const form = document.getElementById("aluno-form");
