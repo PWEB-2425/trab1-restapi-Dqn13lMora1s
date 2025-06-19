@@ -24,21 +24,19 @@ const res = await fetch(`${apiUrl}/cursos`);
 async function fetchAlunos() {
   const res = await fetch(`${apiUrl}/alunos`);
   const alunos = await res.json();
-  const cursos = await fetch(`${apiUrl}/cursos`).then(r => r.json());
-  renderTabela(alunos, cursos);
+  renderTabela(alunos);
 }
 
 // Mostra a tabela de alunos no HTML
-function renderTabela(alunos, cursos) {
+function renderTabela(alunos) {
   alunosTbody.innerHTML = "";
 
   for (let aluno of alunos) {
-    const curso = cursos.find(c => c.id == aluno.curso);
     const row = `
       <tr>
         <td>${aluno.nome}</td>
         <td>${aluno.apelido}</td>
-        <td>${curso?.nomeDoCurso || "N/A"}</td>
+        <td>${aluno.curso || "N/A"}</td> <!-- ✅ already the course name -->
         <td>${aluno.anoCurricular}</td>
         <td>${aluno.idade}</td>
         <td>
@@ -137,7 +135,7 @@ document.getElementById("procurar-btn").addEventListener("click", async () => {
   const cursos = await fetch(`${apiUrl}/cursos`).then(r => r.json());
 
   const filtrados = alunos.filter(a => {
-    const cursoNome = cursos.find(c => c.id == a.curso)?.nomeDoCurso.toLowerCase() || "";
+    const cursoNome = a.curso?.toLowerCase() || "";
     return (
       a.nome.toLowerCase().includes(termo) ||
       a.apelido.toLowerCase().includes(termo) ||
