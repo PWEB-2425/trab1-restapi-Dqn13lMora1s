@@ -36,7 +36,7 @@ function renderTabela(alunos) {
       <tr>
         <td>${aluno.nome}</td>
         <td>${aluno.apelido}</td>
-        <td>${aluno.curso || "N/A"}</td> <!-- ✅ already the course name -->
+        <td>${aluno.curso || "N/A"}</td>
         <td>${aluno.anoCurricular}</td>
         <td>${aluno.idade}</td>
         <td>

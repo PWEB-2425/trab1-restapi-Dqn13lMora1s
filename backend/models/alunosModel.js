@@ -4,7 +4,7 @@ const alunoSchema = new mongoose.Schema({
   id: {
     type: String,
     required: true,
-    unique: true // important for proper querying
+    unique: true
   },
   nome: {
     type: String,

@@ -6,7 +6,6 @@ exports.getAlunos = async (req, res) => {
     const alunos = await Aluno.find();
     const cursos = await Curso.find();
 
-    // Replace curso ID with course name only
     const alunosComCurso = alunos.map(aluno => {
       const curso = cursos.find(c => c.id === aluno.curso);
       return {
@@ -22,7 +21,7 @@ exports.getAlunos = async (req, res) => {
 };
 
 exports.getAluno = async (req, res) => {
-  console.log("🔍 Looking for aluno with id:", req.params.id);
+  console.log("🔍 A pesquisar pelo id do aluno:", req.params.id);
 
   try {
     // Find the aluno by custom id field
@@ -32,10 +31,8 @@ exports.getAluno = async (req, res) => {
       return res.status(404).json({ message: "Aluno não encontrado" });
     }
 
-    // Find the curso where curso.id matches aluno.curso
     const curso = await Curso.findOne({ id: aluno.curso });
 
-    // Convert aluno to object and replace `curso` field with only the course name
     const alunoComCurso = {
       ...aluno.toObject(),
       curso: curso ? curso.nomeDoCurso : null
@@ -43,7 +40,7 @@ exports.getAluno = async (req, res) => {
 
     res.json(alunoComCurso);
   } catch (error) {
-    console.error("❌ Error fetching aluno by id:", error);
+    console.error("❌ Erro ao pesquisar aluno por id:", error);
     res.status(500).json({ message: "Erro ao buscar aluno" });
   }
 };

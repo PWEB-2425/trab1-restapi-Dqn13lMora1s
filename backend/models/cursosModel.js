@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const cursoSchema = new mongoose.Schema({
   id: {
-  type: String, // this is your custom ID
+  type: String,
   required: true,
   unique: true
   },

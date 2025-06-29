@@ -1,153 +1,174 @@
-# Trabalho Prático #1
+# Trabalho Prático #1 - API RESTful com Frontend e Backend
 
-## Consumo e Implementação de APIs RESTful
+Projeto desenvolvido para a unidade curricular de Tecnologias Web. O objetivo é consolidar os conhecimentos em criação, consumo e implementação de APIs RESTful utilizando o ecossistema JavaScript moderno, com foco em boas práticas, testes e deploy.
 
-### Objetivo Geral
+##  Autor
 
-Consolidar os conhecimentos em desenvolvimento web com foco na criação, consumo e implementação de APIs RESTful utilizando tecnologias do ecossistema JavaScript:
-
-- Node.js + Express
-- MongoDB / MongoDB Atlas
-- JSON-Server
-- Fetch API
-- Swagger (opcional)
-
-O projeto simula o ciclo completo de desenvolvimento de uma aplicação web com front-end e back-end separados, incluindo testes e deploy.
+* Daniel Morais
 
 ---
 
-## Partes do Trabalho
+##  Objetivo Geral
 
-### Parte 1: Estruturação da Base de Dados (JSON)
+Construir uma aplicação completa (frontend + backend) com:
 
-- Criar um ficheiro `bd.json` com:
-
-  - Lista de alunos: `nome`, `apelido`, `curso`, `anoCurricular`
-  - Lista de cursos: `nomeDoCurso`
-
-- 📁 Diretório sugerido: `/mock-data/`
-- 📄 Entregável: `bd.json`
-
----
-
-### Parte 2: API Simulada com JSON-Server + Testes
-
-- Configurar e iniciar `json-server` com `bd.json`
-- Testar os endpoints com Postman (CRUD de alunos, leitura de cursos)
-- Exportar a coleção de testes
-
-- 📁 Diretório sugerido: `/mock-server/`
-- 📄 Entregáveis:
-  - Código de configuração (`package.json`, script json-server)
-  - Coleção `.json` do Postman em `/tests/`
+* CRUD completo de alunos
+* Associação com cursos
+* API RESTful real com MongoDB
+* Interface web funcional
+* Documentação com Swagger
+* Deploy em Vercel (frontend) e Render (backend)
 
 ---
 
-### Parte 3: Interface Web (CRUD de Alunos)
+##  Tecnologias Utilizadas
 
-- Desenvolver uma página web funcional para gerir alunos:
-  - Ver alunos
-  - Adicionar aluno
-  - Editar aluno
-  - Apagar aluno
-- Utilizar `Fetch API` e programação assíncrona
+### Frontend
 
-- 📁 Diretório sugerido: `/frontend/`
-- 📄 Entregável: Página funcional conectada à API simulada
+* HTML, CSS, JavaScript
+* Fetch API para consumir a API
 
----
+### Backend
 
-### Parte 4: API RESTful real (Node.js + Express + MongoDB Atlas)
+* Node.js + Express
+* MongoDB Atlas + Mongoose
+* Swagger (para documentação da API)
 
-- Migrar os dados para o MongoDB Atlas
-- Implementar a API Express com endpoints equivalentes ao JSON-server
-- Manter a estrutura RESTful
-- Sugestão : usar mongoose a abordagem MVC (bónus 5%)
+### Testes
 
-- 📁 Diretório sugerido: `/backend/`
-- 📄 Entregável: Código funcional da API com instruções
+* JSON Server (mock)
+* Postman
 
----
+### Deploy
 
-### Parte 5: Deploy da Aplicação
-
-- Fazer deploy do front-end no [Vercel](https://vercel.com)
-- (Opcional) Fazer deploy da API no [Render](https://render.com)
-- Adaptar o front-end para consumir a nova API
-
-📄 Incluir no `README.md`:
-
-- URL pública do front-end
-- URL da API real
-- 📄 Entregável: Links funcionais no repositório
+* Vercel (frontend)
+* Render (backend)
 
 ---
 
-### Parte 6 (Bonificação): Documentação da API
+##  Estrutura do Projeto
 
-- Utilizar Swagger para documentar os endpoints da API
-- Incluir rota `/api-docs` na aplicação
-
-- 📁 Diretório sugerido: `/backend/docs/`
-- 📄 Entregável: Swagger funcional e acessível
-
----
-
-## Organização do Projeto
-
-```text
+```
 projeto-raiz/
 │
-├── /frontend/ ← Interface web (HTML/CSS/JS)
-├── /backend/ ← API RESTful com Node.js + MongoDB
-├── /mock-server/ ← JSON-server configurado
-├── /mock-data/ ← Base de dados JSON original
-├── /tests/ ← Coleção de testes Postman
-├── README.md ← Instruções, links e notas
-└── .gitignore, etc.
+├── frontend/        # Interface web
+|   └── index.html   # 
+|   └── style.css    # 
+|   └── script.js    # 
+├── backend/         # API RESTful real (Express + MongoDB)
+|   └── controllers/ # Lógica dos endpoints (CRUD)
+│   └── docs/        # SwaggerConfig.js e documentação
+|   └── models/      # Modelos Mongoose (Aluno, Curso)
+|   └── routes/      # Definição das rotas da API
+|   └── server.js    # Ficheiro principal do servidor
+├── mock-server/     # JSON Server configurado
+├── mock-data/       # bd.json (dados simulados)
+├── tests/           # Coleção do Postman
+└── README.md
 ```
 
 ---
 
-## Sugestão de Branches
+##  Funcionalidades
 
-| Branch     | Descrição                        |
-| ---------- | -------------------------------- |
-| `main`     | Versão estável e final           |
-| `dev`      | Desenvolvimento geral            |
-| `frontend` | Interface e interação do usuário |
-| `api`      | API real (Node + MongoDB)        |
-| `deploy`   | Adaptações para Vercel/Render    |
+### Frontend
 
----
+* Visualizar todos os alunos
+* Adicionar novo aluno
+* Editar aluno existente
+* Apagar aluno
+* Pesquisa por nome, apelido, idade ou curso
 
-## Critérios de Avaliação
+### Backend
 
-| Critério                         | Peso |
-| -------------------------------- | ---- |
-| Base de dados JSON correta       | 10%  |
-| API simulada e testada (Postman) | 10%  |
-| Funcionalidade do front-end      | 30%  |
-| Qualidade da API real (Node.js)  | 30%  |
-| Integração front-end/backend     | 10%  |
-| Deploy funcional                 | 10%  |
-| Bonificação (MVC)                | +5%  |
-| Bonificação (Swagger)            | +5%  |
+* Endpoints RESTful:
+
+  * GET /alunos, GET /alunos/\:id
+  * POST /alunos
+  * PUT /alunos/\:id
+  * DELETE /alunos/\:id
+  * GET /cursos, GET /cursos/\:id
+* Dados persistidos em MongoDB Atlas
+* Documentação dos endpoints em Swagger
 
 ---
 
-## Entrega
+##  Links Importantes
 
-- Entrega via **GitHub Classroom**.
-- O repositório deve conter:
-  - Código funcional
-  - README.md com instruções claras
-  - Links de deploy (front e opcionalmente back)
+*  Frontend (Vercel): [https://trab1-restapi-dqn13l-mora1s-7boc.vercel.app](https://trab1-restapi-dqn13l-mora1s-7boc.vercel.app)
+*  API (Render): [https://trab1-restapi-dqn13lmora1s-backend.onrender.com](https://trab1-restapi-dqn13lmora1s-backend.onrender.com)
+*  Documentação Swagger: [https://trab1-restapi-dqn13lmora1s-backend.onrender.com/docs](https://trab1-restapi-dqn13lmora1s-backend.onrender.com/docs)
 
 ---
 
-### Repositório Base
+##  Instalação Local
 
-Usa o repositório template inicial fornecido no GitHub Classroom.
-# TWT1RESTAPI
-# TRAB1_TEMPLATE
+### 1. Clonar o repositório
+
+```bash
+git clone <url-do-repositorio>
+cd <nome-do-projeto>
+```
+
+### 2. Instalar dependências do backend
+
+```bash
+cd backend
+npm install
+```
+
+### 3. Criar o ficheiro `.env`
+
+```env
+MONGO_URI=<tua_connection_string_mongodb>
+PORT=5000
+```
+
+### 4. Iniciar o backend
+
+```bash
+node server.js
+```
+
+### 5. Iniciar o frontend
+
+Basta abrir o ficheiro `index.html` no navegador ou fazer o deploy via Vercel.
+
+---
+
+##  Testes com JSON Server (Mock API)
+
+```bash
+cd mock-server
+npm install
+npm run start
+```
+
+A API simulada irá usar o ficheiro `mock-data/bd.json`.
+
+---
+
+##  Swagger
+
+A documentação da API encontra-se disponível na rota:
+
+```
+GET /docs
+```
+
+A configuração encontra-se em `backend/docs/SwaggerConfig.js`.
+
+---
+
+## Considerações Finais
+
+Este projeto cobre todas as etapas do ciclo de desenvolvimento de aplicações web modernas, incluindo:
+
+* Modelagem de dados
+* Simulação de APIs
+* Criação de APIs reais
+* Integração full-stack
+* Testes e documentação
+* Deploy completo
+
+---

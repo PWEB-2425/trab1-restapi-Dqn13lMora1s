@@ -11,11 +11,11 @@ const options = {
     },
     servers: [
       {
-        url: "https://trab1-restapi-dqn13lmora1s-backend.onrender.com", // ✅ URL do Render
+        url: "https://trab1-restapi-dqn13lmora1s-backend.onrender.com", //  URL do Render
         description: "Servidor de produção",
       },
       {
-        url: "http://localhost:3000", // ✅ Localhost para testes locais
+        url: "http://localhost:5000", //  Localhost para testes locais
         description: "Servidor local",
       }
     ]
