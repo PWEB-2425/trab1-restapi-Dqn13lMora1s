@@ -6,13 +6,14 @@ const dotenv = require('dotenv');
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./docs/SwaggerConfig");
 
-app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
 dotenv.config();
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
+
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Rotas
 const alunoRoutes = require('./routes/alunosRoutes');
